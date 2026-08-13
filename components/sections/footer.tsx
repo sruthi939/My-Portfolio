@@ -1,33 +1,29 @@
-import { SocialLinks } from '@/components/sections/social-links'
 import { site } from '@/lib/site'
 
 export function Footer() {
     return (
-        <footer className="relative border-t border-border">
-            <div className="mx-auto max-w-6xl px-5 py-14">
-                <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
+        <footer className="relative border-t border-white/10 bg-[#070609] py-16">
+            <div className="mx-auto max-w-7xl px-6">
+                <div className="flex flex-col items-center justify-between gap-6 text-center md:flex-row md:text-left">
                     <div>
                         <a
                             href="#home"
-                            className="font-display text-2xl font-semibold tracking-tight"
+                            data-cursor="OPEN"
+                            className="font-display text-xl font-bold tracking-tight text-white uppercase"
                         >
                             {site.name}
-                            <span className="text-primary">.</span>
                         </a>
-                        <p className="mt-2 text-sm text-muted-foreground">{site.role}</p>
-                        <p className="mt-1 text-sm text-muted-foreground">{site.location}</p>
+                        <p className="mt-1 font-mono text-xs uppercase tracking-widest text-white/50">
+                            UI/UX DESIGNER &bull; FRONTEND DEVELOPER
+                        </p>
                     </div>
 
-                    <SocialLinks />
-                </div>
-
-                <div className="mt-10 flex flex-col items-center justify-between gap-3 border-t border-border pt-6 text-xs text-muted-foreground sm:flex-row">
-                    <p>
-                        © {new Date().getFullYear()} {site.name}. All rights reserved.
+                    <p className="font-mono text-xs text-white/40 tracking-widest uppercase">
+                        &copy; 2026 {site.name.toUpperCase()}. ALL RIGHTS RESERVED.
                     </p>
-                    <p>Designed &amp; built with Next.js, R3F and Framer Motion.</p>
                 </div>
             </div>
         </footer>
     )
 }
+
