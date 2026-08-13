@@ -1,7 +1,7 @@
 'use client'
 
 import { Canvas, useFrame } from '@react-three/fiber'
-import { Float, Html, Text } from '@react-three/drei'
+import { Float, Text } from '@react-three/drei'
 import { useRef, useState, useEffect } from 'react'
 import * as THREE from 'three'
 import { techStackList } from '@/lib/site'
@@ -14,8 +14,8 @@ function TechTile({ item, position }: { item: TechItem; position: [number, numbe
 
     useFrame((state, delta) => {
         if (!meshRef.current) return
-        const targetZ = position[2] + (hovered ? 0.8 : 0)
-        const targetScale = hovered ? 1.2 : 1.0
+        const targetZ = position[2] + (hovered ? 0.6 : 0)
+        const targetScale = hovered ? 1.15 : 1.0
 
         meshRef.current.position.z = THREE.MathUtils.damp(meshRef.current.position.z, targetZ, 6, delta)
         meshRef.current.scale.x = THREE.MathUtils.damp(meshRef.current.scale.x, targetScale, 6, delta)
@@ -33,108 +33,87 @@ function TechTile({ item, position }: { item: TechItem; position: [number, numbe
             }}
             onPointerOut={() => setHovered(false)}
         >
-            {/* Glass / Metallic Rounded Tile Box */}
+            {/* Glass Box Tile */}
             <mesh>
-                <boxGeometry args={[1.6, 0.7, 0.12]} />
+                <boxGeometry args={[1.35, 0.65, 0.08]} />
                 <meshPhysicalMaterial
-                    color={hovered ? '#1E1433' : '#0F0D15'}
-                    roughness={0.2}
-                    metalness={0.5}
-                    transmission={0.4}
-                    thickness={0.2}
-                    clearcoat={0.6}
+                    color={hovered ? '#1E1433' : '#0B0912'}
+                    roughness={0.25}
+                    metalness={0.4}
+                    transmission={0.3}
+                    clearcoat={0.5}
                     emissive={hovered ? item.color : '#000000'}
-                    emissiveIntensity={hovered ? 0.6 : 0}
+                    emissiveIntensity={hovered ? 0.5 : 0}
                 />
             </mesh>
 
-            {/* Glowing Accent Border Lines */}
-            <mesh position={[0, 0, 0.07]}>
-                <planeGeometry args={[1.56, 0.66]} />
+            {/* Glowing Wireframe Border */}
+            <mesh position={[0, 0, 0.05]}>
+                <planeGeometry args={[1.32, 0.62]} />
                 <meshBasicMaterial
                     color={hovered ? item.color : 'rgba(184, 76, 255, 0.25)'}
                     transparent
-                    opacity={hovered ? 0.9 : 0.3}
+                    opacity={hovered ? 0.9 : 0.25}
                     wireframe
                 />
             </mesh>
 
-            {/* 3D Text Label */}
+            {/* Tech Name Label */}
             <Text
-                position={[0, 0, 0.08]}
-                fontSize={0.2}
+                position={[0, 0, 0.06]}
+                fontSize={0.17}
                 color={hovered ? '#FFFFFF' : '#D66BFF'}
                 anchorX="center"
                 anchorY="middle"
-                font="/fonts/Inter-Bold.ttf"
             >
                 {item.name}
             </Text>
 
-            {/* Interactive Tooltip Overlay on Hover */}
-            {hovered && (
-                <Html position={[0, -0.6, 0.2]} center distanceFactor={8}>
-                    <div className="pointer-events-none rounded-lg border border-accent/40 bg-[#070609]/90 px-3 py-1.5 backdrop-blur-md shadow-[0_0_20px_rgba(184,76,255,0.5)]">
-                        <p className="font-mono text-[10px] font-bold text-accent uppercase tracking-wider">
-                            {item.category} &bull; {item.level}
-                        </p>
-                    </div>
-                </Html>
-            )}
-
-            {/* Hover Spotlight Glow */}
-            {hovered && <pointLight position={[0, 0, 0.5]} color={item.color} intensity={2.5} distance={3} />}
+            {hovered && <pointLight position={[0, 0, 0.4]} color={item.color} intensity={2} distance={2.5} />}
         </group>
     )
 }
 
-function ConstellationCloud() {
+function InvertedPyramidConstellation() {
     const cloudGroup = useRef<THREE.Group>(null)
 
     useFrame((state) => {
         if (cloudGroup.current) {
-            cloudGroup.current.rotation.y = Math.sin(state.clock.elapsedTime * 0.2) * 0.15
-            cloudGroup.current.rotation.x = Math.cos(state.clock.elapsedTime * 0.15) * 0.08
+            cloudGroup.current.rotation.y = Math.sin(state.clock.elapsedTime * 0.15) * 0.1
+            cloudGroup.current.rotation.x = Math.cos(state.clock.elapsedTime * 0.1) * 0.05
         }
     })
 
-    // Calculate constellation grid positions across 3 depth layers
-    const positions: [number, number, number][] = [
-        // Front Layer
-        [-3.2, 1.8, 0.6],
-        [-1.1, 1.9, 0.8],
-        [1.1, 1.8, 0.6],
-        [3.2, 1.9, 0.8],
+    // Inverted Pyramid / V-shaped positions matching Screenshot 5 layout
+    const vPositions: [number, number, number][] = [
+        // Row 1 (Top Wide Row: 10 items)
+        [-6.5, 2.4, 0], [-5.0, 2.4, 0], [-3.5, 2.4, 0], [-2.0, 2.4, 0], [-0.5, 2.4, 0],
+        [0.5, 2.4, 0], [2.0, 2.4, 0], [3.5, 2.4, 0], [5.0, 2.4, 0], [6.5, 2.4, 0],
 
-        // Middle Layer
-        [-4.2, 0.6, 0.2],
-        [-2.1, 0.7, 0.3],
-        [0, 0.8, 0.4],
-        [2.1, 0.7, 0.3],
-        [4.2, 0.6, 0.2],
+        // Row 2 (8 items)
+        [-5.2, 1.4, 0.2], [-3.7, 1.4, 0.2], [-2.2, 1.4, 0.2], [-0.7, 1.4, 0.2],
+        [0.7, 1.4, 0.2], [2.2, 1.4, 0.2], [3.7, 1.4, 0.2], [5.2, 1.4, 0.2],
 
-        // Lower Middle Layer
-        [-3.2, -0.5, 0.5],
-        [-1.1, -0.4, 0.7],
-        [1.1, -0.4, 0.7],
-        [3.2, -0.5, 0.5],
+        // Row 3 (6 items)
+        [-4.0, 0.4, 0.4], [-2.5, 0.4, 0.4], [-1.0, 0.4, 0.4],
+        [1.0, 0.4, 0.4], [2.5, 0.4, 0.4], [4.0, 0.4, 0.4],
 
-        // Back Layer
-        [-4.2, -1.7, -0.2],
-        [-2.1, -1.6, -0.1],
-        [0, -1.5, 0.1],
-        [2.1, -1.6, -0.1],
-        [4.2, -1.7, -0.2],
-        [-1.1, -2.6, 0.3],
-        [1.1, -2.6, 0.3],
+        // Row 4 (4 items)
+        [-2.7, -0.6, 0.6], [-0.9, -0.6, 0.6], [0.9, -0.6, 0.6], [2.7, -0.6, 0.6],
+
+        // Row 5 (2 items)
+        [-1.4, -1.6, 0.8], [1.4, -1.6, 0.8],
+
+        // Row 6 (Bottom Tip: 1 item)
+        [0, -2.6, 1.0],
     ]
 
     return (
         <group ref={cloudGroup}>
             {techStackList.map((item, index) => {
-                const pos = positions[index % positions.length]
+                const pos = vPositions[index % vPositions.length]
                 return (
-                    <Float key={item.name} speed={1.5} rotationIntensity={0.1} floatIntensity={0.3}>
+                    <Float key={item.name} speed={1.2} rotationIntensity={0.05} floatIntensity={0.2}>
                         <TechTile item={item} position={pos} />
                     </Float>
                 )
@@ -153,14 +132,15 @@ export function TechStack3D() {
     if (!mounted) return null
 
     return (
-        <div className="relative h-[650px] w-full">
-            {/* Atmospheric Background Purple Light Spill */}
+        <div className="relative h-[720px] w-full">
+            {/* Atmospheric Background Purple Mesh & Glow */}
             <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-                <div className="h-[450px] w-[650px] rounded-full bg-accent/15 blur-[150px]" />
+                <div className="h-[550px] w-[800px] rounded-full bg-accent/15 blur-[170px]" />
+                <div className="absolute inset-0 bg-grid opacity-30" />
             </div>
 
             <Canvas
-                camera={{ position: [0, 0, 7.5], fov: 48 }}
+                camera={{ position: [0, 0, 8.2], fov: 50 }}
                 dpr={[1, 2]}
                 gl={{ antialias: true, alpha: true }}
                 className="w-full h-full"
@@ -169,8 +149,9 @@ export function TechStack3D() {
                 <pointLight position={[0, 0, 5]} color="#B84CFF" intensity={3} />
                 <directionalLight position={[4, 5, 4]} color="#FFFFFF" intensity={1.5} />
 
-                <ConstellationCloud />
+                <InvertedPyramidConstellation />
             </Canvas>
         </div>
     )
 }
+

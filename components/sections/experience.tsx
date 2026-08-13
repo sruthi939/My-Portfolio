@@ -1,89 +1,104 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Reveal } from '@/components/motion/reveal'
 import { experience } from '@/lib/site'
+
+const timelineItems = [
+    {
+        role: 'Learning & Building',
+        category: 'Self-Development & AI',
+        year: 'NOW',
+        detail: 'Continuously exploring emerging design frameworks, 3D web graphics, AI agents, and pushing the boundaries of what is possible in frontend engineering.',
+    },
+    {
+        role: 'Lead UI/UX & Frontend',
+        category: 'Smart Fishermen Safety System',
+        year: '2025',
+        detail: 'Designed and shipped a multi-portal emergency safety platform connecting fishermen, families, and rescue teams with real-time alerts.',
+    },
+    {
+        role: 'Frontend Developer Intern',
+        category: 'Product Studio',
+        year: '2024',
+        detail: 'Shipped production React components and design-system primitives used across multiple enterprise products.',
+    },
+    {
+        role: 'B.Tech, Computer Science',
+        category: 'AKTU University',
+        year: '2023',
+        detail: 'Focused on human-computer interaction, web engineering, UI/UX research, and modern frontend application development.',
+    },
+]
 
 export function Experience() {
     return (
-        <section id="experience" className="relative bg-[#070609] py-32 sm:py-48">
-            {/* Background Glow Spill */}
-            <div className="pointer-events-none absolute top-1/2 left-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/10 blur-[150px]" />
+        <section id="experience" className="relative bg-[#070609] py-32 sm:py-48 overflow-hidden">
+            {/* Background Glow */}
+            <div className="pointer-events-none absolute right-1/4 top-1/2 h-[500px] w-[500px] -translate-y-1/2 rounded-full bg-accent/15 blur-[160px]" />
 
-            <div className="mx-auto max-w-4xl px-6">
+            <div className="mx-auto max-w-6xl px-6">
                 {/* Centered Heading */}
                 <div className="text-center">
-                    <motion.span
-                        initial={{ opacity: 0, y: 15 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        className="font-mono text-xs font-semibold tracking-[0.3em] text-accent uppercase text-glow"
-                    >
-                        TIMELINE
-                    </motion.span>
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ delay: 0.1 }}
-                        className="mt-3 font-display text-4xl font-light tracking-tight text-white sm:text-6xl"
+                        className="font-display text-4xl font-light tracking-tight text-white sm:text-6xl"
                     >
-                        My career &amp;{' '}
+                        My career &amp; <br />
                         <span className="font-semibold text-accent text-glow">experience</span>
                     </motion.h2>
+
+                    {/* Glowing Purple Orb Top Node with Vertical Drop Line */}
+                    <div className="mt-8 flex flex-col items-center">
+                        <div className="relative flex h-8 w-8 items-center justify-center">
+                            <span className="absolute h-8 w-8 animate-ping rounded-full bg-accent/40 opacity-75" />
+                            <span className="h-5 w-5 rounded-full border border-white bg-accent shadow-[0_0_20px_#B84CFF]" />
+                        </div>
+                        <div className="h-16 w-px bg-gradient-to-b from-accent via-accent/50 to-transparent" />
+                    </div>
                 </div>
 
-                {/* Minimal Vertical Timeline */}
-                <div className="relative mt-24">
-                    {/* Vertical Center Line */}
-                    <div className="absolute left-6 sm:left-1/2 top-0 bottom-0 w-px -translate-x-1/2 bg-gradient-to-b from-accent/0 via-accent/30 to-accent/0" />
+                {/* 3-Column Timeline Alignment Grid */}
+                <div className="mt-16 space-y-16">
+                    {timelineItems.map((item, i) => (
+                        <motion.div
+                            key={item.role}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: i * 0.1 }}
+                            className="grid grid-cols-1 gap-4 items-baseline md:grid-cols-[1fr_120px_1.4fr] lg:gap-8"
+                        >
+                            {/* Role Column */}
+                            <div>
+                                <h3 className="font-display text-2xl font-bold tracking-tight text-white/90 sm:text-3xl">
+                                    {item.role}
+                                </h3>
+                                <p className="mt-1 font-mono text-xs text-accent uppercase tracking-wider">
+                                    {item.category}
+                                </p>
+                            </div>
 
-                    <div className="space-y-16">
-                        {experience.map((item, i) => {
-                            const isEven = i % 2 === 0
-                            return (
-                                <Reveal
-                                    key={item.title}
-                                    delay={i * 0.1}
-                                    className="relative flex flex-col sm:flex-row items-start"
-                                >
-                                    {/* Content Card */}
-                                    <div
-                                        className={`w-full sm:w-[45%] pl-14 sm:pl-0 ${
-                                            isEven ? 'sm:mr-auto sm:text-right sm:pr-12' : 'sm:ml-auto sm:text-left sm:pl-12'
-                                        }`}
-                                    >
-                                        <div className="group relative rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-xl transition-all duration-300 hover:border-accent/40 hover:bg-accent/[0.05] hover:shadow-[0_0_30px_rgba(184,76,255,0.2)]">
-                                            <div className="flex items-center gap-3 justify-between sm:justify-start">
-                                                <span className="font-mono text-xs font-semibold tracking-wider text-accent uppercase">
-                                                    {item.kind}
-                                                </span>
-                                                <span className="font-mono text-[11px] text-white/40">
-                                                    {item.period}
-                                                </span>
-                                            </div>
-                                            <h3 className="mt-2 font-display text-xl font-medium text-white group-hover:text-accent transition-colors">
-                                                {item.title}
-                                            </h3>
-                                            <p className="mt-1 font-sans text-xs text-white/60">{item.org}</p>
-                                            <p className="mt-3 font-sans text-xs leading-relaxed text-white/50">
-                                                {item.detail}
-                                            </p>
-                                        </div>
-                                    </div>
+                            {/* Year Column */}
+                            <div>
+                                <span className="font-display text-3xl font-extrabold tracking-widest text-white/40 sm:text-4xl">
+                                    {item.year}
+                                </span>
+                            </div>
 
-                                    {/* Timeline Dot Node */}
-                                    <div className="absolute left-6 sm:left-1/2 top-6 flex h-4 w-4 -translate-x-1/2 items-center justify-center">
-                                        <span className="absolute h-4 w-4 animate-ping rounded-full bg-accent/40 opacity-75" />
-                                        <span className="h-2.5 w-2.5 rounded-full border border-white bg-accent shadow-[0_0_10px_#B84CFF]" />
-                                    </div>
-                                </Reveal>
-                            )
-                        })}
-                    </div>
+                            {/* Detail Description Column */}
+                            <div>
+                                <p className="font-sans text-xs sm:text-sm text-white/50 leading-relaxed">
+                                    {item.detail}
+                                </p>
+                            </div>
+                        </motion.div>
+                    ))}
                 </div>
             </div>
         </section>
     )
 }
+
 

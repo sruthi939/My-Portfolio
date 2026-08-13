@@ -27,17 +27,17 @@ function AvatarCharacter() {
     })
 
     return (
-        <group ref={groupRef} position={[-0.4, -0.4, 0]} scale={0.95}>
+        <group ref={groupRef} position={[0, -0.35, 0]} scale={0.88}>
             {/* HEAD GROUP */}
             <group ref={headRef} position={[0, 0.55, 0]}>
                 {/* Main Head Base */}
                 <mesh position={[0, 0, 0]}>
                     <sphereGeometry args={[0.65, 64, 64]} />
                     <meshPhysicalMaterial
-                        color="#EFEFEF"
-                        roughness={0.25}
+                        color="#FAFAFD"
+                        roughness={0.2}
                         metalness={0.05}
-                        clearcoat={0.3}
+                        clearcoat={0.4}
                         clearcoatRoughness={0.1}
                     />
                 </mesh>
@@ -100,11 +100,11 @@ function AvatarCharacter() {
                 {/* Ears */}
                 <mesh position={[-0.68, 0, 0]} rotation={[0, 0, 0.3]}>
                     <sphereGeometry args={[0.16, 16, 16]} />
-                    <meshPhysicalMaterial color="#EFEFEF" roughness={0.3} />
+                    <meshPhysicalMaterial color="#FAFAFD" roughness={0.3} />
                 </mesh>
                 <mesh position={[0.68, 0, 0]} rotation={[0, 0, -0.3]}>
                     <sphereGeometry args={[0.16, 16, 16]} />
-                    <meshPhysicalMaterial color="#EFEFEF" roughness={0.3} />
+                    <meshPhysicalMaterial color="#FAFAFD" roughness={0.3} />
                 </mesh>
             </group>
 
@@ -113,7 +113,7 @@ function AvatarCharacter() {
                 {/* Neck */}
                 <mesh position={[0, 0.72, 0]}>
                     <cylinderGeometry args={[0.18, 0.22, 0.3, 32]} />
-                    <meshPhysicalMaterial color="#EFEFEF" roughness={0.3} />
+                    <meshPhysicalMaterial color="#FAFAFD" roughness={0.3} />
                 </mesh>
 
                 {/* Collar */}
@@ -125,17 +125,17 @@ function AvatarCharacter() {
                 {/* Main Upper Torso */}
                 <mesh position={[0, 0.15, 0]}>
                     <cylinderGeometry args={[0.54, 0.46, 0.85, 32]} />
-                    <meshPhysicalMaterial color="#EAEAEA" roughness={0.3} metalness={0.05} />
+                    <meshPhysicalMaterial color="#FFFFFF" roughness={0.25} metalness={0.05} />
                 </mesh>
 
                 {/* Shoulders */}
                 <mesh position={[-0.55, 0.38, 0]} rotation={[0, 0, -0.2]}>
                     <sphereGeometry args={[0.24, 32, 32]} />
-                    <meshPhysicalMaterial color="#EAEAEA" roughness={0.3} />
+                    <meshPhysicalMaterial color="#FFFFFF" roughness={0.25} />
                 </mesh>
                 <mesh position={[0.55, 0.38, 0]} rotation={[0, 0, 0.2]}>
                     <sphereGeometry args={[0.24, 32, 32]} />
-                    <meshPhysicalMaterial color="#EAEAEA" roughness={0.3} />
+                    <meshPhysicalMaterial color="#FFFFFF" roughness={0.25} />
                 </mesh>
             </group>
         </group>
@@ -147,24 +147,24 @@ function GlowingPurpleOrb() {
 
     useFrame((state) => {
         if (orbRef.current) {
-            orbRef.current.position.y = -0.1 + Math.sin(state.clock.elapsedTime * 0.8) * 0.06
+            orbRef.current.position.y = -0.3 + Math.sin(state.clock.elapsedTime * 0.8) * 0.06
         }
     })
 
     return (
-        <group position={[-0.4, 0.1, -1.5]}>
+        <group position={[0, -0.2, -1.6]}>
             <mesh ref={orbRef}>
-                <sphereGeometry args={[0.7, 64, 64]} />
+                <sphereGeometry args={[0.85, 64, 64]} />
                 <meshStandardMaterial
                     color="#5A189A"
                     emissive="#B84CFF"
-                    emissiveIntensity={2.5}
+                    emissiveIntensity={2.4}
                     roughness={0.2}
                     transparent
-                    opacity={0.7}
+                    opacity={0.8}
                 />
             </mesh>
-            <pointLight position={[0, 0, 1]} color="#B84CFF" intensity={3.5} distance={7} />
+            <pointLight position={[0, 0, 1]} color="#B84CFF" intensity={3.5} distance={8} />
         </group>
     )
 }
@@ -181,7 +181,7 @@ export function HeroAvatarScene() {
     return (
         <div className="h-full w-full relative">
             <Canvas
-                camera={{ position: [0, 0, 4.6], fov: 38 }}
+                camera={{ position: [0, 0, 4.8], fov: 38 }}
                 dpr={[1, 2]}
                 gl={{ antialias: true, alpha: true }}
                 className="w-full h-full"
@@ -200,5 +200,6 @@ export function HeroAvatarScene() {
         </div>
     )
 }
+
 
 
