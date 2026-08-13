@@ -10,18 +10,17 @@ export function Hero() {
     return (
         <section
             id="home"
-            className="relative flex min-h-[100svh] w-full items-center justify-center overflow-hidden bg-[#070609] pt-20"
+            className="relative flex min-h-[100svh] w-full items-center justify-center overflow-hidden bg-[#070609] pt-24 pb-12"
         >
             {/* Background Glow Spill */}
-            <div className="pointer-events-none absolute top-1/2 left-1/2 h-[650px] w-[650px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/15 blur-[160px]" />
-            <div className="pointer-events-none absolute top-1/3 left-1/4 h-[400px] w-[400px] rounded-full bg-[#5A189A]/20 blur-[140px]" />
+            <div className="pointer-events-none absolute top-1/2 left-1/2 h-[550px] w-[550px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/15 blur-[150px]" />
 
             {/* Left Side Vertical Social Links */}
             <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.5 }}
-                className="absolute left-6 top-1/2 z-20 hidden -translate-y-1/2 lg:block"
+                className="absolute left-6 top-1/2 z-20 hidden -translate-y-1/2 xl:block"
             >
                 <SocialLinks vertical />
             </motion.div>
@@ -32,20 +31,20 @@ export function Hero() {
             </div>
 
             {/* Hero Overlay Typography */}
-            <div className="relative z-20 mx-auto flex w-full max-w-7xl flex-col items-between justify-between px-6 pointer-events-none py-12 min-h-[80svh]">
-                <div className="grid w-full grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-0">
+            <div className="relative z-20 mx-auto flex w-full max-w-[85rem] flex-col justify-between px-6 pointer-events-none min-h-[82svh] py-6">
+                <div className="grid w-full grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-36">
 
                     {/* Left Typography: HELLO, I'M SRUTHI ALEX */}
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
-                        className="pointer-events-auto flex flex-col items-start"
+                        className="pointer-events-auto flex flex-col items-start lg:pl-10"
                     >
-                        <span className="font-mono text-xs font-semibold tracking-[0.3em] text-white/60 uppercase">
+                        <span className="font-mono text-xs font-semibold tracking-[0.3em] text-accent uppercase text-glow">
                             HELLO, I&apos;M
                         </span>
-                        <h1 className="mt-2 font-display text-4xl font-bold tracking-tight text-white uppercase sm:text-6xl lg:text-7xl">
+                        <h1 className="mt-2 font-display text-4xl font-extrabold tracking-tight text-white uppercase sm:text-5xl lg:text-6xl leading-tight">
                             {site.name}
                         </h1>
                         <p className="mt-4 max-w-xs font-mono text-xs tracking-wider text-white/50 leading-relaxed uppercase">
@@ -58,20 +57,20 @@ export function Hero() {
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.4 }}
-                        className="pointer-events-auto flex flex-col items-start lg:items-end text-left lg:text-right"
+                        className="pointer-events-auto flex flex-col items-start lg:items-end text-left lg:text-right lg:pr-10"
                     >
-                        <span className="font-mono text-xs font-semibold tracking-[0.3em] text-accent uppercase text-glow">
+                        <span className="font-mono text-xs font-semibold tracking-[0.3em] text-accent/80 uppercase text-glow">
                             CREATIVE DESIGN &amp; CODE
                         </span>
-                        <h2 className="mt-2 font-display text-3xl font-light tracking-tight text-white uppercase sm:text-5xl lg:text-6xl leading-none">
+                        <h2 className="mt-2 font-display text-2xl font-light tracking-tight text-white uppercase sm:text-4xl lg:text-5xl leading-tight">
                             UI/UX DESIGNER
                         </h2>
-                        <h2 className="mt-1 font-display text-3xl font-light tracking-tight text-accent/90 uppercase sm:text-5xl lg:text-6xl leading-none text-glow">
+                        <h2 className="mt-1 font-display text-2xl font-semibold tracking-tight text-accent uppercase sm:text-4xl lg:text-5xl leading-tight text-glow">
                             FRONTEND DEVELOPER
                         </h2>
 
                         {/* RESUME Link */}
-                        <div className="mt-8 flex items-center gap-4">
+                        <div className="mt-6 flex items-center gap-4">
                             <a
                                 href="/resume.pdf"
                                 data-cursor="OPEN"
@@ -90,7 +89,7 @@ export function Hero() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 1 }}
-                    className="pointer-events-auto mx-auto mt-12 flex flex-col items-center gap-2"
+                    className="pointer-events-auto mx-auto mt-8 flex flex-col items-center gap-2"
                 >
                     <a
                         href="#about"
@@ -105,4 +104,5 @@ export function Hero() {
         </section>
     )
 }
+
 
