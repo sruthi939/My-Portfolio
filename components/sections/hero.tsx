@@ -1,9 +1,8 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ArrowDown, Download, MapPin } from 'lucide-react'
-import { Hero3D } from '@/components/three/hero-3d'
-import { Magnetic } from '@/components/motion/magnetic'
+import { Download, ArrowDown } from 'lucide-react'
+import { HeroAvatarScene } from '@/components/3d/hero-avatar-scene'
 import { SocialLinks } from '@/components/sections/social-links'
 import { site } from '@/lib/site'
 
@@ -11,113 +10,99 @@ export function Hero() {
     return (
         <section
             id="home"
-            className="relative flex min-h-[100svh] items-center overflow-hidden pt-28 pb-16"
+            className="relative flex min-h-[100svh] w-full items-center justify-center overflow-hidden bg-[#070609] pt-20"
         >
-            {/* Ambient background */}
-            <div className="pointer-events-none absolute inset-0 bg-grid opacity-40" />
-            <div className="pointer-events-none absolute -top-40 right-0 h-[500px] w-[500px] rounded-full bg-primary/15 blur-[130px]" />
-            <div className="pointer-events-none absolute bottom-0 left-0 h-[420px] w-[420px] rounded-full bg-accent/10 blur-[130px]" />
+            {/* Background Glow Spill */}
+            <div className="pointer-events-none absolute top-1/2 left-1/2 h-[650px] w-[650px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/15 blur-[160px]" />
+            <div className="pointer-events-none absolute top-1/3 left-1/4 h-[400px] w-[400px] rounded-full bg-[#5A189A]/20 blur-[140px]" />
 
-            {/* 3D scene: right on desktop, subtle backdrop on mobile */}
-            <div className="absolute inset-y-0 right-0 h-full w-full md:w-[55%]">
-                <div className="h-full w-full opacity-70 md:opacity-100">
-                    <Hero3D />
-                </div>
+            {/* Left Side Vertical Social Links */}
+            <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.5 }}
+                className="absolute left-6 top-1/2 z-20 hidden -translate-y-1/2 lg:block"
+            >
+                <SocialLinks vertical />
+            </motion.div>
+
+            {/* Main Centerpiece 3D Canvas */}
+            <div className="absolute inset-0 z-10 h-full w-full">
+                <HeroAvatarScene />
             </div>
 
-            <div className="relative z-10 mx-auto w-full max-w-6xl px-5">
-                <div className="max-w-2xl">
-                    <motion.p
-                        initial={{ opacity: 0, y: 16 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.1 }}
-                        className="mb-5 inline-flex items-center gap-2 rounded-full border border-border bg-secondary/40 px-3 py-1.5 text-xs tracking-wide text-muted-foreground backdrop-blur-sm"
-                    >
-                        <MapPin size={13} className="text-accent" />
-                        {site.location}
-                        <span className="text-border">•</span>
-                        {site.tagline}
-                    </motion.p>
+            {/* Hero Overlay Typography */}
+            <div className="relative z-20 mx-auto flex w-full max-w-7xl flex-col items-between justify-between px-6 pointer-events-none py-12 min-h-[80svh]">
+                <div className="grid w-full grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-0">
 
-                    <motion.p
-                        initial={{ opacity: 0, y: 16 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.2 }}
-                        className="font-mono text-sm uppercase tracking-[0.25em] text-primary"
-                    >
-                        Hello, I&apos;m {site.name}
-                    </motion.p>
-
-                    <motion.h1
-                        initial={{ opacity: 0, y: 22 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                        className="mt-3 font-display text-5xl font-semibold leading-[0.98] tracking-tight text-balance sm:text-6xl lg:text-7xl"
-                    >
-                        UI/UX Designer
-                        <br />
-                        <span className="text-glow bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
-                            &amp; Frontend Developer
-                        </span>
-                    </motion.h1>
-
-                    <motion.p
-                        initial={{ opacity: 0, y: 16 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.7, delay: 0.5 }}
-                        className="mt-6 max-w-xl text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg"
-                    >
-                        I design intuitive digital experiences and transform them into fast,
-                        responsive and beautiful web applications.
-                    </motion.p>
-
+                    {/* Left Typography: HELLO, I'M SRUTHI ALEX */}
                     <motion.div
-                        initial={{ opacity: 0, y: 16 }}
+                        initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.7, delay: 0.65 }}
-                        className="mt-9 flex flex-wrap items-center gap-3"
+                        transition={{ duration: 0.8, delay: 0.2 }}
+                        className="pointer-events-auto flex flex-col items-start"
                     >
-                        <Magnetic>
-                            <a
-                                href="#projects"
-                                className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground shadow-[0_8px_30px_-8px_var(--primary)] transition-transform hover:scale-[1.03]"
-                            >
-                                View My Work
-                            </a>
-                        </Magnetic>
-                        <Magnetic>
+                        <span className="font-mono text-xs font-semibold tracking-[0.3em] text-white/60 uppercase">
+                            HELLO, I&apos;M
+                        </span>
+                        <h1 className="mt-2 font-display text-4xl font-bold tracking-tight text-white uppercase sm:text-6xl lg:text-7xl">
+                            {site.name}
+                        </h1>
+                        <p className="mt-4 max-w-xs font-mono text-xs tracking-wider text-white/50 leading-relaxed uppercase">
+                            {site.location} &mdash; {site.tagline}
+                        </p>
+                    </motion.div>
+
+                    {/* Right Typography: UI/UX DESIGNER & FRONTEND DEVELOPER */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.4 }}
+                        className="pointer-events-auto flex flex-col items-start lg:items-end text-left lg:text-right"
+                    >
+                        <span className="font-mono text-xs font-semibold tracking-[0.3em] text-accent uppercase text-glow">
+                            CREATIVE DESIGN &amp; CODE
+                        </span>
+                        <h2 className="mt-2 font-display text-3xl font-light tracking-tight text-white uppercase sm:text-5xl lg:text-6xl leading-none">
+                            UI/UX DESIGNER
+                        </h2>
+                        <h2 className="mt-1 font-display text-3xl font-light tracking-tight text-accent/90 uppercase sm:text-5xl lg:text-6xl leading-none text-glow">
+                            FRONTEND DEVELOPER
+                        </h2>
+
+                        {/* RESUME Link */}
+                        <div className="mt-8 flex items-center gap-4">
                             <a
                                 href="/resume.pdf"
-                                className="inline-flex items-center gap-2 rounded-full border border-border bg-secondary/40 px-6 py-3 text-sm font-medium text-foreground backdrop-blur-sm transition-colors hover:bg-secondary"
+                                data-cursor="OPEN"
+                                className="group inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/10 px-5 py-2.5 font-mono text-xs font-semibold tracking-widest text-white uppercase transition-all duration-300 hover:border-accent hover:bg-accent hover:text-black hover:shadow-[0_0_25px_rgba(184,76,255,0.7)]"
                             >
-                                <Download size={16} />
-                                Download Resume
+                                <Download size={14} className="transition-transform group-hover:scale-110" />
+                                RESUME
                             </a>
-                        </Magnetic>
+                        </div>
                     </motion.div>
 
-                    <motion.div
-                        initial={{ opacity: 0, y: 16 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.7, delay: 0.8 }}
-                        className="mt-10"
-                    >
-                        <SocialLinks />
-                    </motion.div>
                 </div>
-            </div>
 
-            <motion.a
-                href="#about"
-                aria-label="Scroll to about"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1.1 }}
-                className="absolute bottom-6 left-1/2 z-10 hidden -translate-x-1/2 flex-col items-center gap-2 text-xs text-muted-foreground md:flex"
-            >
-                <span className="tracking-widest uppercase">Scroll</span>
-                <ArrowDown size={16} className="animate-bounce text-primary" />
-            </motion.a>
+                {/* Bottom Scroll Indicator */}
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 1 }}
+                    className="pointer-events-auto mx-auto mt-12 flex flex-col items-center gap-2"
+                >
+                    <a
+                        href="#about"
+                        data-cursor="OPEN"
+                        className="group flex flex-col items-center gap-2 font-mono text-[10px] tracking-[0.3em] text-white/40 uppercase transition-colors hover:text-accent"
+                    >
+                        <span>SCROLL</span>
+                        <ArrowDown size={14} className="animate-bounce text-accent" />
+                    </a>
+                </motion.div>
+            </div>
         </section>
     )
 }
+

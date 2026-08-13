@@ -2,76 +2,88 @@
 
 import { motion } from 'framer-motion'
 import { Reveal } from '@/components/motion/reveal'
-import { SectionHeading } from '@/components/sections/section-heading'
 import { experience } from '@/lib/site'
-
-const kindColor: Record<string, string> = {
-    Education: 'text-primary border-primary/40 bg-primary/10',
-    Internship: 'text-accent border-accent/40 bg-accent/10',
-    Project: 'text-primary border-primary/40 bg-primary/10',
-    Certification: 'text-accent border-accent/40 bg-accent/10',
-    Achievement: 'text-primary border-primary/40 bg-primary/10',
-}
 
 export function Experience() {
     return (
-        <section id="experience" className="relative overflow-hidden py-24 sm:py-32">
-            <div className="mx-auto max-w-6xl px-5">
-                <SectionHeading
-                    index="04"
-                    eyebrow="Experience"
-                    title="A path shaped by learning and building."
-                />
-            </div>
+        <section id="experience" className="relative bg-[#070609] py-32 sm:py-48">
+            {/* Background Glow Spill */}
+            <div className="pointer-events-none absolute top-1/2 left-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/10 blur-[150px]" />
 
-            <div className="relative mt-14">
-                {/* Horizontal timeline track */}
-                <div className="no-scrollbar overflow-x-auto pb-6">
-                    <div className="mx-auto flex min-w-max gap-6 px-5 md:max-w-none md:px-[max(1.25rem,calc((100vw-72rem)/2))]">
-                        {/* connecting line */}
-                        <div className="pointer-events-none absolute left-0 right-0 top-[92px] h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+            <div className="mx-auto max-w-4xl px-6">
+                {/* Centered Heading */}
+                <div className="text-center">
+                    <motion.span
+                        initial={{ opacity: 0, y: 15 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="font-mono text-xs font-semibold tracking-[0.3em] text-accent uppercase text-glow"
+                    >
+                        TIMELINE
+                    </motion.span>
+                    <motion.h2
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.1 }}
+                        className="mt-3 font-display text-4xl font-light tracking-tight text-white sm:text-6xl"
+                    >
+                        My career &amp;{' '}
+                        <span className="font-semibold text-accent text-glow">experience</span>
+                    </motion.h2>
+                </div>
 
-                        {experience.map((item, i) => (
-                            <Reveal key={item.title} delay={i * 0.08} className="relative">
-                                <div className="w-[280px] shrink-0 sm:w-[320px]">
-                                    <div className="mb-6 flex flex-col items-start gap-3">
-                                        <span
-                                            className={`rounded-full border px-3 py-1 text-xs font-medium ${kindColor[item.kind]}`}
-                                        >
-                                            {item.kind}
-                                        </span>
-                                        {/* node */}
-                                        <motion.span
-                                            initial={{ scale: 0 }}
-                                            whileInView={{ scale: 1 }}
-                                            viewport={{ once: true }}
-                                            transition={{ delay: 0.2 + i * 0.08, type: 'spring' }}
-                                            className="relative flex h-4 w-4 items-center justify-center"
-                                        >
-                                            <span className="absolute h-4 w-4 animate-ping rounded-full bg-primary/40" />
-                                            <span className="h-3 w-3 rounded-full border border-primary bg-background" />
-                                        </motion.span>
+                {/* Minimal Vertical Timeline */}
+                <div className="relative mt-24">
+                    {/* Vertical Center Line */}
+                    <div className="absolute left-6 sm:left-1/2 top-0 bottom-0 w-px -translate-x-1/2 bg-gradient-to-b from-accent/0 via-accent/30 to-accent/0" />
+
+                    <div className="space-y-16">
+                        {experience.map((item, i) => {
+                            const isEven = i % 2 === 0
+                            return (
+                                <Reveal
+                                    key={item.title}
+                                    delay={i * 0.1}
+                                    className="relative flex flex-col sm:flex-row items-start"
+                                >
+                                    {/* Content Card */}
+                                    <div
+                                        className={`w-full sm:w-[45%] pl-14 sm:pl-0 ${
+                                            isEven ? 'sm:mr-auto sm:text-right sm:pr-12' : 'sm:ml-auto sm:text-left sm:pl-12'
+                                        }`}
+                                    >
+                                        <div className="group relative rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-xl transition-all duration-300 hover:border-accent/40 hover:bg-accent/[0.05] hover:shadow-[0_0_30px_rgba(184,76,255,0.2)]">
+                                            <div className="flex items-center gap-3 justify-between sm:justify-start">
+                                                <span className="font-mono text-xs font-semibold tracking-wider text-accent uppercase">
+                                                    {item.kind}
+                                                </span>
+                                                <span className="font-mono text-[11px] text-white/40">
+                                                    {item.period}
+                                                </span>
+                                            </div>
+                                            <h3 className="mt-2 font-display text-xl font-medium text-white group-hover:text-accent transition-colors">
+                                                {item.title}
+                                            </h3>
+                                            <p className="mt-1 font-sans text-xs text-white/60">{item.org}</p>
+                                            <p className="mt-3 font-sans text-xs leading-relaxed text-white/50">
+                                                {item.detail}
+                                            </p>
+                                        </div>
                                     </div>
 
-                                    <div className="rounded-2xl border border-border bg-card/50 p-5 transition-colors hover:border-primary/40">
-                                        <p className="font-mono text-xs text-primary">{item.period}</p>
-                                        <h3 className="mt-2 font-display text-lg font-semibold tracking-tight">
-                                            {item.title}
-                                        </h3>
-                                        <p className="mt-1 text-sm text-muted-foreground">{item.org}</p>
-                                        <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                                            {item.detail}
-                                        </p>
+                                    {/* Timeline Dot Node */}
+                                    <div className="absolute left-6 sm:left-1/2 top-6 flex h-4 w-4 -translate-x-1/2 items-center justify-center">
+                                        <span className="absolute h-4 w-4 animate-ping rounded-full bg-accent/40 opacity-75" />
+                                        <span className="h-2.5 w-2.5 rounded-full border border-white bg-accent shadow-[0_0_10px_#B84CFF]" />
                                     </div>
-                                </div>
-                            </Reveal>
-                        ))}
+                                </Reveal>
+                            )
+                        })}
                     </div>
                 </div>
-                <p className="mt-2 px-5 text-center text-xs text-muted-foreground md:hidden">
-                    Swipe to explore the timeline →
-                </p>
             </div>
         </section>
     )
 }
+
