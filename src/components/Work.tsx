@@ -17,15 +17,14 @@ const Work = () => {
 
     function setTranslateX() {
       const box = document.getElementsByClassName("work-box");
-      if (box.length === 0) return;
-      const rectLeft = document
-        .querySelector(".work-container")!
-        .getBoundingClientRect().left;
+      const container = document.querySelector(".work-container");
+      if (box.length === 0 || !container || !box[0].parentElement) return;
+      const rectLeft = container.getBoundingClientRect().left;
       const rect = box[0].getBoundingClientRect();
-      const parentWidth = box[0].parentElement!.getBoundingClientRect().width;
+      const parentWidth = box[0].parentElement.getBoundingClientRect().width;
       let padding: number =
-        parseInt(window.getComputedStyle(box[0]).padding) / 2;
-      translateX = rect.width * box.length - (rectLeft + parentWidth) + padding;
+        parseInt(window.getComputedStyle(box[0]).padding) || 40;
+      translateX = Math.max(0, rect.width * box.length - (rectLeft + parentWidth) + padding);
     }
 
     setTranslateX();
@@ -49,10 +48,8 @@ const Work = () => {
       ease: "none",
     });
 
-    // Refresh ScrollTrigger after layout settles
     ScrollTrigger.refresh();
 
-    // Clean up
     return () => {
       timeline.kill();
       ScrollTrigger.getById("work")?.kill();

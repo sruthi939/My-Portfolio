@@ -1,190 +1,175 @@
 export const config = {
     developer: {
-        name: "Redoyanul",
-        fullName: "Redoyanul Haque",
-        title: "AI & Full-Stack Developer",
-        description: "AI & Full-Stack Developer building intelligent systems and modern web applications. Passionate about machine learning, deep learning, and creating next-gen autonomous agents."
+        name: "Sruthi",
+        fullName: "Sruthi Alex",
+        title: "UI/UX Designer & Frontend Developer",
+        description: "UI/UX Designer & Frontend Developer building intuitive digital systems, design frameworks, and modern 3D web applications."
     },
     social: {
-        github: "red1-for-hek",
-        email: "redoyanul1234@gmail.com",
-        location: "Bangladesh"
+        github: "sruthi939",
+        email: "sruthialex47@gmail.com",
+        location: "Kerala, India"
     },
     about: {
         title: "About Me",
-        description: "I am a self-taught AI & Full-Stack Developer from Bangladesh. I build intelligent systems, chatbots, and modern web applications. My expertise includes Machine Learning, Deep Learning, NLP, and Full-Stack Web Development with React, Node.js, and Python. Currently building next-gen AI Agents and JARVIS-like Personal Assistants. I have a competitive programming mindset and a deep passion for automation. Code is poetry, AI is the canvas."
+        description: "I am a UI/UX Designer & Frontend Developer based in Kerala, India. I build intuitive digital systems, design frameworks, and modern 3D web applications. My expertise includes React, Next.js, TypeScript, Tailwind CSS, Three.js, and emerging AI tools. Code is poetry, design is the canvas."
     },
     experiences: [
         {
-            position: "Learning Something New",
-            company: "Self-Development",
+            position: "Lead UI/UX & Frontend Developer",
+            company: "Self-Development & Projects",
             period: "2025 - Present",
-            location: "Bangladesh",
-            description: "Continuously exploring emerging technologies, researching advanced AI systems, and pushing the boundaries of what's possible in tech.",
+            location: "Kerala, India",
+            description: "Continuously designing modern user interfaces, crafting design systems, and building full-stack web applications with React, Next.js, and Three.js.",
             responsibilities: [
-                "Researching cutting-edge AI and ML technologies",
-                "Experimenting with new frameworks and tools",
-                "Contributing to open-source projects",
-                "Building innovative personal projects"
+                "Designing UI/UX wireframes and prototypes in Figma",
+                "Building performant frontend applications with React & TypeScript",
+                "Developing full-stack web solutions with Node.js and MongoDB",
+                "Crafting interactive 3D web experiences"
             ],
-            technologies: ["Research", "Innovation", "Open Source", "New Tech"]
+            technologies: ["Figma", "React", "TypeScript", "Next.js", "Three.js", "Tailwind CSS"]
         },
         {
-            position: "AI Engineer",
-            company: "Freelance & Projects",
-            period: "2025",
-            location: "Bangladesh",
-            description: "Developing intelligent AI systems, chatbots, and machine learning solutions. Building next-gen conversational AI agents and JARVIS-like personal assistants.",
-            responsibilities: [
-                "Building AI-powered chatbots and conversational agents",
-                "Developing machine learning models with TensorFlow and PyTorch",
-                "Working with LLMs and transformer architectures",
-                "Creating autonomous AI systems and automation tools"
-            ],
-            technologies: ["Python", "TensorFlow", "PyTorch", "LLMs", "NLP", "AI Agents"]
-        },
-        {
-            position: "Full-Stack Developer",
-            company: "Freelance & Projects",
+            position: "UI/UX & Web Developer Intern",
+            company: "Product Studio",
             period: "2024",
-            location: "Bangladesh",
-            description: "Built complete web applications from frontend to backend. Developed responsive UIs, RESTful APIs, and database solutions for various clients and projects.",
+            location: "Kerala, India",
+            description: "Designed intuitive user interfaces and built responsive React components for web applications.",
             responsibilities: [
-                "Developing full-stack web applications using React and Node.js",
-                "Building RESTful APIs and integrating databases",
-                "Creating responsive and interactive user interfaces",
-                "Deploying and maintaining web applications"
+                "Creating user flow diagrams and high-fidelity mockups",
+                "Building reusable React component libraries",
+                "Optimizing frontend performance and mobile responsiveness",
+                "Collaborating with development teams on project delivery"
             ],
-            technologies: ["React", "Node.js", "MongoDB", "Express", "Next.js", "TypeScript"]
+            technologies: ["React", "JavaScript", "HTML5", "CSS3", "Tailwind CSS", "Git"]
         },
         {
-            position: "Python Developer",
-            company: "Self-Taught & Projects",
-            period: "2023",
-            location: "Bangladesh",
-            description: "Dove deep into Python programming, building automation scripts, bots, and mastering the fundamentals of software development and problem-solving.",
+            position: "B.Tech Computer Science",
+            company: "University",
+            period: "2021 - 2025",
+            location: "Kerala, India",
+            description: "Studied Computer Science engineering with emphasis on human-computer interaction, web technologies, software engineering, and database systems.",
             responsibilities: [
-                "Learning Python programming and core concepts",
-                "Building automation scripts and Discord bots",
-                "Exploring data structures and algorithms",
-                "Participating in competitive programming"
+                "Learning core computer science & software development",
+                "Building web applications for academic projects",
+                "Participating in coding hackathons and technical events",
+                "Developing problem-solving and algorithmic thinking"
             ],
-            technologies: ["Python", "Automation", "Scripting", "Discord.py", "Problem Solving"]
-        },
-        {
-            position: "Graphic Designer",
-            company: "Freelance",
-            period: "2022",
-            location: "Bangladesh",
-            description: "Started my creative journey as a graphic designer, creating logos, banners, and visual content. This sparked my passion for technology and digital creation.",
-            responsibilities: [
-                "Designing logos and brand identity materials",
-                "Creating social media graphics and banners",
-                "Working with clients on creative projects",
-                "Learning design principles and visual aesthetics"
-            ],
-            technologies: ["Photoshop", "Illustrator", "Canva", "Figma", "Visual Design"]
-        },
-        {
-            position: "Microsoft Office",
-            company: "Begin Learning",
-            period: "2021",
-            location: "Bangladesh",
-            description: "Started my journey into the digital world by learning Microsoft Office tools. This foundational step introduced me to computers and sparked my curiosity for technology.",
-            responsibilities: [
-                "Learning Microsoft Word, Excel, and PowerPoint",
-                "Creating documents and presentations",
-                "Understanding basic computer operations",
-                "Building foundational digital skills"
-            ],
-            technologies: ["MS Word", "MS Excel", "MS PowerPoint", "Computer Basics"]
+            technologies: ["Computer Science", "Web Development", "Python", "JavaScript", "DBMS"]
         }
     ],
     projects: [
         {
             id: 1,
-            title: "Drishti",
-            category: "AI / LLM",
-            technologies: "Python, PyTorch, Transformers, FastAPI, React, MongoDB",
-            image: "/images/Drishti.png",
-            description: "Bangladesh's first intelligent advanced AI chatbot powered by a custom Large Language Model. Features natural language understanding, contextual conversations, and multilingual support including Bengali.",
-            link: "https://huggingface.co/red1-for-hek/drishti-ilm-x1"
+            title: "Smart Fishermen Safety System",
+            category: "IoT / Emergency Safety",
+            technologies: "React, Node.js, WebSockets, GPS Tracking, Tailwind CSS",
+            image: "/images/VoteChain.png",
+            description: "An emergency safety & rescue monitoring portal connecting fishermen at sea with emergency services and rescue teams for real-time alerts and location tracking.",
+            link: "https://github.com/sruthi939/SMART-FISHERMEN-SAFETY-RESCUE-SYSTEM"
         },
         {
             id: 2,
-            title: "VoteChain",
-            category: "Blockchain",
-            technologies: "Solidity, Web3.js, React, Ethereum, IPFS, MetaMask, Node.js",
-            image: "/images/VoteChain.png",
-            description: "A decentralized election system built on blockchain technology ensuring transparent, tamper-proof, and verifiable voting. Features smart contracts for vote integrity and real-time result tracking.",
-            link: "https://github.com/red1-for-hek/smart-election-by-blockchain"
+            title: "Doctor Appointment Booking",
+            category: "Healthcare Webapp",
+            technologies: "React, Node.js, Express, MongoDB, Tailwind CSS",
+            image: "/images/Prodesk.png",
+            description: "A comprehensive doctor appointment scheduling portal with real-time slot booking, doctor profiles, and medical appointment management.",
+            link: "https://github.com/sruthi939/Doctor-Appointment-Booking-"
+        },
+        {
+            id: 3,
+            title: "Hospital Alert System",
+            category: "Healthcare / Emergency Alerts",
+            technologies: "React, Node.js, Firebase, WebSockets",
+            image: "/images/Drishti.png",
+            description: "Real-time hospital emergency notification system for rapid medical response coordination and critical alert dispatching.",
+            link: "https://github.com/sruthi939/Hospital-Alert-System"
         },
         {
             id: 4,
-            title: "Flood Spaces 2.0",
-            category: "AI / ML",
-            technologies: "Python, TensorFlow, Pandas, React, FastAPI, GIS",
-            image: "/images/FloodSpaces.png",
-            description: "Predicts flood risks across Bangladesh up to one month in advance and sends early alerts to help people prepare.",
-            link: "https://github.com/red1-for-hek/Flood-Spaces-2.0"
+            title: "Food Delivery Webapp",
+            category: "Full-Stack Webapp",
+            technologies: "React, Node.js, Express, MongoDB, Stripe",
+            image: "/images/Prodesk.png",
+            description: "Modern online food ordering platform with live order tracking, menu selection, and secure payment processing.",
+            link: "https://github.com/sruthi939/Food-Delivery-Webapp"
         },
         {
             id: 5,
-            title: "Phoenix 3.0",
-            category: "AI Assistant",
-            technologies: "Python, Speech Recognition, PyAutoGUI, OpenAI API, Tkinter",
-            image: "/images/Phoenix3.0.png",
-            description: "A JARVIS-inspired personal AI desktop assistant. Controls system functions, manages tasks, answers queries, automates workflows, and provides voice-activated computing experience.",
-            link: "https://github.com/red1-for-hek/phoenix3.0"
+            title: "DD Cloth Hub",
+            category: "E-Commerce",
+            technologies: "React, Node.js, Tailwind CSS, Redux",
+            image: "/images/Prodesk.png",
+            description: "Sleek fashion & apparel e-commerce storefront with product filtering, category browsing, and shopping cart management.",
+            link: "https://github.com/sruthi939/DD-Cloth-Hub"
         },
         {
             id: 6,
-            title: "RedxChess",
-            category: "AI / Game Engine",
-            technologies: "Python, C++, Neural Networks, Bitboards, UCI Protocol",
-            image: "/images/RedxChess.png",
-            description: "A high-performance chess engine rated 3640 ELO. Features advanced search algorithms, neural network evaluation, and optimized bitboard representation for lightning-fast move generation.",
-            link: "/play"
+            title: "Destino Travel Planner",
+            category: "Travel & Webapp",
+            technologies: "React, TypeScript, Tailwind CSS, Maps API",
+            image: "/images/FloodSpaces.png",
+            description: "Interactive travel planning application for curating trip itineraries, discovering places to visit, and organizing travel schedules.",
+            link: "https://github.com/sruthi939/Destino-Travel-Planner"
         },
         {
             id: 7,
-            title: "Prodesk",
-            category: "E-commerce",
-            technologies: "React, Node.js, MongoDB, Express, Stripe",
-            image: "/images/Prodesk.png",
-            description: "A complete e-commerce platform with secure checkout and smooth product browsing.",
-            link: "https://github.com/red1-for-hek/prodesk"
+            title: "Spotify Clone",
+            category: "Media Streaming",
+            technologies: "React, Web Audio API, Tailwind CSS",
+            image: "/images/Phoenix3.0.png",
+            description: "Feature-rich Spotify web music player interface with playlist controls, playback progress, and dynamic audio streaming.",
+            link: "https://github.com/sruthi939/Spotify_-Clone"
         },
         {
             id: 8,
-            title: "HekTools",
-            category: "Security / Android",
-            technologies: "Kotlin, Android SDK, Firebase, Python, Encryption",
-            image: "/images/hektools.png",
-            description: "An advanced Android monitoring and security research tool. Features remote device management, activity logging, and encrypted data transmission for security testing purposes.",
-            link: ""
+            title: "Eco Waste Management",
+            category: "Sustainability / Webapp",
+            technologies: "React, Node.js, MongoDB, GIS Maps",
+            image: "/images/FloodSpaces.png",
+            description: "Smart eco-friendly waste management system connecting communities with waste collection services for efficient recycling.",
+            link: "https://github.com/sruthi939/Eco-Waste"
+        },
+        {
+            id: 9,
+            title: "Food Donation System",
+            category: "Social Impact / Webapp",
+            technologies: "React, Express, MongoDB, Node.js",
+            image: "/images/VoteChain.png",
+            description: "Platform facilitating surplus food donation pickups between restaurants, individuals, and relief organizations.",
+            link: "https://github.com/sruthi939/Food-Donation-System"
+        },
+        {
+            id: 10,
+            title: "Movie Ticket Booking",
+            category: "Entertainment Webapp",
+            technologies: "React, Node.js, Express, Tailwind CSS",
+            image: "/images/Prodesk.png",
+            description: "Cinema ticket reservation application with interactive seat selection, showtimes schedule, and instant booking confirmation.",
+            link: "https://github.com/sruthi939/Movie-Ticket-Booking"
         }
     ],
     contact: {
-        email: "redoyanul1234@gmail.com",
-        github: "https://github.com/red1-for-hek",
-        linkedin: "https://linkedin.com/in/red1-for-hek",
-        twitter: "https://x.com/red_1_ul",
-        facebook: "https://www.facebook.com/redoyanulhaque.hacker.official",
-        instagram: "https://www.instagram.com/red_1_ul"
+        email: "sruthialex@gmail.com",
+        github: "https://github.com/sruthi939",
+        linkedin: "https://linkedin.com/in/sruthi939",
+        twitter: "https://x.com/sruthialex",
+        facebook: "https://www.facebook.com/sruthialex.official",
+        instagram: "https://www.instagram.com/sruthialex"
     },
     skills: {
         develop: {
-            title: "AI DEVELOPER",
-            description: "Building intelligent systems & AI solutions",
-            details: "Developing AI agents, chatbots, and machine learning models using Python, TensorFlow, and PyTorch. Specializing in LLMs, NLP, deep learning, and autonomous systems.",
-            tools: ["Python", "TensorFlow", "PyTorch", "OpenCV", "Scikit-learn", "LLMs", "NLP", "Deep Learning", "Chatbots", "AI Agents"]
+            title: "UI/UX DESIGNER",
+            description: "Building intuitive design systems & prototypes",
+            details: "Crafting human-centered digital experiences, Figma design tokens, interactive wireframes, and responsive product interfaces focused on clarity, hierarchy, and usability.",
+            tools: ["Figma", "Design Systems", "Wireframing", "Prototyping", "User Research", "UI/UX", "Tailwind CSS"]
         },
         design: {
-            title: "FULL-STACK",
-            description: "Modern web development & scalable applications",
-            details: "Building responsive and performant web applications using React, Next.js, Node.js, and databases. Creating seamless user experiences with modern UI/UX principles.",
-            tools: ["React", "Next.js", "Node.js", "TypeScript", "MongoDB", "PostgreSQL", "TailwindCSS", "REST APIs", "Docker", "Git"]
+            title: "FRONTEND DEVELOPER",
+            description: "Modern web development & 3D applications",
+            details: "Building high-performance, accessible web applications using React, Next.js, TypeScript, Tailwind CSS, and interactive Three.js 3D graphics.",
+            tools: ["React", "Next.js", "TypeScript", "Three.js", "Tailwind CSS", "Node.js", "MongoDB", "REST APIs", "Git", "GitHub"]
         }
     }
 };

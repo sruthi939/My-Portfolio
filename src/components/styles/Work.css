@@ -10,9 +10,12 @@
 
 .work-section {
   transition: 0s;
-  height: 100vh;
+  min-height: 100vh;
   box-sizing: border-box;
   will-change: transform;
+  position: relative;
+  overflow: hidden;
+  z-index: 2;
 }
 
 .work-container {
@@ -21,27 +24,29 @@
   flex-direction: column;
   height: 100%;
   align-content: stretch;
+  position: relative;
+  z-index: 2;
 }
 
 .work-flex {
   width: 100%;
   display: flex;
   height: 100%;
-  margin-left: -80px;
+  margin-left: 0;
   padding-right: 120px;
   position: relative;
 }
 
 .work-box {
-  padding: 80px;
+  padding: 50px 40px;
   display: flex;
   flex-direction: column;
-  width: 600px;
+  width: 520px;
   box-sizing: border-box;
   border-right: 1px solid #363636;
   flex-shrink: 0;
-  gap: 50px;
-  justify-content: start;
+  gap: 30px;
+  justify-content: center;
 }
 
 .work-flex .work-box:nth-child(even) {
@@ -51,13 +56,12 @@
 .work-flex::before,
 .work-flex::after {
   content: "";
-  width: calc(50000vw);
+  width: 100%;
   height: 1px;
   background-color: #363636;
   position: absolute;
-  left: 50%;
+  left: 0;
   top: 0;
-  transform: translateX(-50%);
 }
 
 .work-flex::after {
