@@ -1,54 +1,60 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { CountUp } from '@/components/motion/count-up'
-import { Reveal } from '@/components/motion/reveal'
-import { stats } from '@/lib/site'
+import { FileText } from 'lucide-react'
+import { HeroAvatarScene } from '@/components/3d/hero-avatar-scene'
 
 export function About() {
     return (
-        <section id="about" className="relative bg-[#070609] py-32 sm:py-48 overflow-hidden">
-            {/* Ambient Background 3D Glow */}
-            <div className="pointer-events-none absolute right-1/4 top-1/2 h-[500px] w-[500px] -translate-y-1/2 rounded-full bg-accent/15 blur-[160px]" />
+        <section id="about" className="relative bg-[#070609] py-32 sm:py-44 overflow-hidden">
+            {/* Background Glow */}
+            <div className="pointer-events-none absolute left-1/3 top-1/2 h-[550px] w-[550px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/15 blur-[160px]" />
 
-            <div className="mx-auto max-w-7xl px-6">
-                <Reveal>
-                    <span className="font-mono text-xs font-semibold tracking-[0.3em] text-accent uppercase text-glow">
-                        ABOUT ME
-                    </span>
-                    <h2 className="mt-3 max-w-4xl font-display text-4xl font-light tracking-tight text-white sm:text-6xl lg:text-7xl leading-[1.05]">
-                        Designing ideas.{' '}
-                        <span className="font-semibold text-accent text-glow">Building experiences.</span>
-                    </h2>
-                </Reveal>
+            <div className="relative z-10 mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-8 px-6 lg:grid-cols-2 lg:gap-12">
 
-                <div className="mt-16 grid gap-12 lg:grid-cols-[1.4fr_1fr] lg:gap-16 items-center">
-                    <Reveal delay={0.2}>
-                        <p className="font-sans text-lg sm:text-2xl font-light text-white/80 leading-relaxed">
-                            I combine UI/UX design, frontend development and emerging AI tools to create digital experiences that are beautiful, intuitive and functional.
-                        </p>
-                        <p className="mt-6 font-sans text-sm sm:text-base text-white/50 leading-relaxed">
-                            Sitting at the cross-section of aesthetic design and robust web architecture, I bridge the gap between creative vision and production code. Every micro-interaction, 3D element, and layout is built to engage users effortlessly.
-                        </p>
-                    </Reveal>
-
-                    {/* Stat Panels */}
-                    <div className="grid grid-cols-2 gap-4">
-                        {stats.map((stat, i) => (
-                            <Reveal key={stat.label} delay={0.25 + i * 0.08}>
-                                <div className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-xl transition-all duration-300 hover:border-accent/50 hover:bg-accent/[0.08]">
-                                    <div className="pointer-events-none absolute -right-8 -top-8 h-24 w-24 rounded-full bg-accent/20 blur-2xl transition-opacity group-hover:opacity-100" />
-                                    <p className="font-display text-4xl font-bold tracking-tight text-white sm:text-5xl">
-                                        <CountUp to={stat.value} suffix={stat.suffix} />
-                                    </p>
-                                    <p className="mt-2 font-mono text-xs text-white/50">{stat.label}</p>
-                                </div>
-                            </Reveal>
-                        ))}
-                    </div>
+                {/* LEFT HALF: 3D Avatar Bust */}
+                <div className="relative h-[450px] sm:h-[540px] w-full">
+                    <HeroAvatarScene />
                 </div>
+
+                {/* RIGHT HALF: ABOUT ME Header & Bio */}
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8 }}
+                    className="relative flex flex-col items-start justify-center pr-4"
+                >
+                    {/* Glowing Orb Highlight next to text */}
+                    <div className="pointer-events-none absolute -left-10 top-2 h-9 w-9 rounded-full bg-accent/80 blur-md shadow-[0_0_20px_#B84CFF]" />
+
+                    <h2 className="font-mono text-base font-semibold tracking-[0.4em] text-accent uppercase text-glow">
+                        A B O U T &nbsp; M E
+                    </h2>
+
+                    <p className="mt-8 font-sans text-lg sm:text-2xl font-medium text-white/90 leading-relaxed tracking-wide">
+                        I am a UI/UX Designer &amp; Frontend Developer based in Kerala, India. I build intuitive digital systems, design frameworks, and modern 3D web applications.
+                    </p>
+
+                    <p className="mt-4 font-sans text-sm sm:text-base text-white/60 leading-relaxed">
+                        My expertise includes React, Next.js, TypeScript, Tailwind CSS, Three.js, and emerging AI tools. I have a passion for high-end creative interactions, motion with intent, and production-ready code.
+                    </p>
+
+                    {/* RESUME Link at bottom right */}
+                    <div className="mt-12 flex w-full justify-end">
+                        <a
+                            href="/resume.pdf"
+                            data-cursor="OPEN"
+                            className="group flex items-center gap-2 font-mono text-xs font-bold tracking-widest text-white/70 uppercase transition-colors hover:text-accent"
+                        >
+                            <span>RESUME</span>
+                            <FileText size={14} className="transition-transform group-hover:scale-110" />
+                        </a>
+                    </div>
+                </motion.div>
             </div>
         </section>
     )
 }
+
 
