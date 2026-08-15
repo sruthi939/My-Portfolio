@@ -16,9 +16,9 @@ export const config = {
     },
     experiences: [
         {
-            position: "Lead UI/UX & Frontend Developer",
+            position: "UI/UX & Frontend Developer",
             company: "Self-Development & Projects",
-            period: "2025 - Present",
+            period: "2026 - Present",
             location: "Kerala, India",
             description: "Continuously designing modern user interfaces, crafting design systems, and building full-stack web applications with React, Next.js, and Three.js.",
             responsibilities: [
@@ -30,8 +30,7 @@ export const config = {
             technologies: ["Figma", "React", "TypeScript", "Next.js", "Three.js", "Tailwind CSS"]
         },
         {
-            position: "UI/UX & Web Developer Intern",
-            company: "Product Studio",
+            position: "Start build project",
             period: "2024",
             location: "Kerala, India",
             description: "Designed intuitive user interfaces and built responsive React components for web applications.",
@@ -44,9 +43,9 @@ export const config = {
             technologies: ["React", "JavaScript", "HTML5", "CSS3", "Tailwind CSS", "Git"]
         },
         {
-            position: "B.Tech Computer Science",
-            company: "University",
-            period: "2021 - 2025",
+            position: "Bsc Computer Science",
+            company: "Kerala University",
+            period: "2022 - 2026",
             location: "Kerala, India",
             description: "Studied Computer Science engineering with emphasis on human-computer interaction, web technologies, software engineering, and database systems.",
             responsibilities: [
@@ -90,7 +89,7 @@ export const config = {
             id: 4,
             title: "Food Delivery Webapp",
             category: "Full-Stack Webapp",
-            technologies: "React, Node.js, Express, MongoDB, Stripe",
+            technologies: "React, Node.js, JavaScript, Express, MongoDB, Stripe",
             image: "/images/Prodesk.png",
             description: "Modern online food ordering platform with live order tracking, menu selection, and secure payment processing.",
             link: "https://github.com/sruthi939/Food-Delivery-Webapp"
@@ -151,12 +150,12 @@ export const config = {
         }
     ],
     contact: {
-        email: "sruthialex@gmail.com",
+        email: "sruthialex47@gmail.com",
         github: "https://github.com/sruthi939",
-        linkedin: "https://linkedin.com/in/sruthi939",
+        linkedin: "https://www.linkedin.com/in/sruthi-alex-b7784b37a/",
         twitter: "https://x.com/sruthialex",
         facebook: "https://www.facebook.com/sruthialex.official",
-        instagram: "https://www.instagram.com/sruthialex"
+        instagram: "https://www.instagram.com/sh.ruthi_7510/"
     },
     skills: {
         develop: {
